@@ -240,14 +240,14 @@ No test framework is configured in this project. All verification for S-01 is ma
 
 #### Automated
 
-- [x] 3.1 `npm run lint` passes on the full project
-- [x] 3.2 `npm run build` succeeds with zero errors
+- [x] 3.1 `npm run lint` passes on the full project — 0933709
+- [x] 3.2 `npm run build` succeeds with zero errors — 0933709
 
 #### Manual
 
-- [x] 3.3 Happy path — new user: sign up → confirm-email → sign in → dashboard → sign out
-- [x] 3.4 Happy path — returning user: sign in → dashboard → sign out
-- [x] 3.5 Wrong credentials: error shown, stays on sign-in page
-- [x] 3.6 Unauthenticated access to `/dashboard` → redirected to `/auth/signin`
-- [x] 3.7 Auth-page guard: `/auth/signin` and `/auth/signup` while signed in → `/dashboard`
-- [x] 3.8 No browser console errors in any auth state
+- [x] 3.3 Happy path — new user: sign up → confirm-email → sign in → dashboard → sign out — 0933709
+- [x] 3.4 Happy path — returning user: sign in → dashboard → sign out — 0933709
+- [x] 3.5 Wrong credentials: error shown, stays on sign-in page — 0933709
+- [x] 3.6 Unauthenticated access to `/dashboard` → redirected to `/auth/signin` — 0933709
+- [x] 3.7 Auth-page guard: `/auth/signin` and `/auth/signup` while signed in → `/dashboard` — 0933709
+- [x] 3.8 No browser console errors in any auth state — 0933709
