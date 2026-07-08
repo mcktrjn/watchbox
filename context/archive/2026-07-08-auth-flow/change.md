@@ -1,10 +1,10 @@
 ---
 change_id: auth-flow
 title: Auth flow
-status: implemented
+status: archived
 created: 2026-07-08
 updated: 2026-07-08
-archived_at: null
+archived_at: 2026-07-08T10:50:50Z
 ---
 
 ## Notes

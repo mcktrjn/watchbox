@@ -3,7 +3,7 @@ project: "Watchbox"
 version: 1
 status: draft
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-08
 prd_version: 1
 main_goal: speed
 top_blocker: decisions
@@ -30,7 +30,7 @@ Kolekcjoner zegarków poza domem chce mieć dostęp do całej swojej kolekcji w 
 | ID   | Change ID                 | Outcome (użytkownik może …)                                                           | Prerequisites          | PRD refs                               | Status   |
 | ---- | ------------------------- | ------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- | -------- |
 | F-01 | `database-schema`         | (foundation) tabele `watches` i `wear_sessions` z RLS i migracją wdrożone             | —                      | FR-004, FR-008, FR-009, FR-010, FR-011 | ready    |
-| S-01 | `auth-flow`               | zarejestrować konto, zalogować się i wylogować; niezalogowany jest przekierowany      | —                      | FR-001, FR-002, FR-003, US-01          | ready    |
+| S-01 | `auth-flow`               | zarejestrować konto, zalogować się i wylogować; niezalogowany jest przekierowany      | —                      | FR-001, FR-002, FR-003, US-01          | done     |
 | S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | proposed |
 | S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | proposed |
 | S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | proposed |
@@ -75,7 +75,7 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Blockers:** —
 - **Unknowns:** —
 - **Risk:** scaffold auth (`src/pages/api/auth/`, `src/components/auth/`, `src/middleware.ts`) jest obecny w baseline; ryzyko to niezweryfikowane zachowanie end-to-end z prawdziwym Supabase na Cloudflare Workers runtime — należy zweryfikować przed przejściem do S-02
-- **Status:** ready
+- **Status:** done
 
 ### S-02: Kolekcja zegarków — przeglądanie
 
@@ -156,4 +156,4 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 
 ## Done
 
-(Empty on first generation. `/10x-archive` appends entries here — and flips that item's `Status` to `done` — when a change whose `Change ID` matches a roadmap item is archived.)
+- **S-01: użytkownik może założyć konto e-mail+hasło, zalogować się i wylogować; niezalogowany użytkownik jest automatycznie przekierowany na stronę logowania** — Archived 2026-07-08 → `context/archive/2026-07-08-auth-flow/`. Lesson: —.
