@@ -226,28 +226,28 @@ No test framework is configured in this project. All verification for S-01 is ma
 
 #### Automated
 
-- [x] 2.1 `npm run lint` passes with no errors on changed files
-- [x] 2.2 `npm run build` completes without TypeScript errors
+- [x] 2.1 `npm run lint` passes with no errors on changed files — 5b33886
+- [x] 2.2 `npm run build` completes without TypeScript errors — 5b33886
 
 #### Manual
 
-- [x] 2.3 Sign in with valid credentials → browser lands on `/dashboard`
-- [x] 2.4 Visit `/auth/signin` while signed in → redirected to `/dashboard`
-- [x] 2.5 Visit `/auth/signup` while signed in → redirected to `/dashboard`
-- [x] 2.6 Sign up with new email → confirm-email shows "Registration successful" (local Supabase)
+- [x] 2.3 Sign in with valid credentials → browser lands on `/dashboard` — 5b33886
+- [x] 2.4 Visit `/auth/signin` while signed in → redirected to `/dashboard` — 5b33886
+- [x] 2.5 Visit `/auth/signup` while signed in → redirected to `/dashboard` — 5b33886
+- [x] 2.6 Sign up with new email → confirm-email shows "Registration successful" (local Supabase) — 5b33886
 
 ### Phase 3: End-to-End Verification
 
 #### Automated
 
-- [ ] 3.1 `npm run lint` passes on the full project
-- [ ] 3.2 `npm run build` succeeds with zero errors
+- [x] 3.1 `npm run lint` passes on the full project
+- [x] 3.2 `npm run build` succeeds with zero errors
 
 #### Manual
 
-- [ ] 3.3 Happy path — new user: sign up → confirm-email → sign in → dashboard → sign out
-- [ ] 3.4 Happy path — returning user: sign in → dashboard → sign out
-- [ ] 3.5 Wrong credentials: error shown, stays on sign-in page
-- [ ] 3.6 Unauthenticated access to `/dashboard` → redirected to `/auth/signin`
-- [ ] 3.7 Auth-page guard: `/auth/signin` and `/auth/signup` while signed in → `/dashboard`
-- [ ] 3.8 No browser console errors in any auth state
+- [x] 3.3 Happy path — new user: sign up → confirm-email → sign in → dashboard → sign out
+- [x] 3.4 Happy path — returning user: sign in → dashboard → sign out
+- [x] 3.5 Wrong credentials: error shown, stays on sign-in page
+- [x] 3.6 Unauthenticated access to `/dashboard` → redirected to `/auth/signin`
+- [x] 3.7 Auth-page guard: `/auth/signin` and `/auth/signup` while signed in → `/dashboard`
+- [x] 3.8 No browser console errors in any auth state
