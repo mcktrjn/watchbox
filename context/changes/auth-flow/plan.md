@@ -214,27 +214,27 @@ No test framework is configured in this project. All verification for S-01 is ma
 
 #### Automated
 
-- [x] 1.1 `npm run dev` starts without crashing
-- [x] 1.2 No "Supabase is not configured" redirect on any auth page
+- [x] 1.1 `npm run dev` starts without crashing — 18692b9
+- [x] 1.2 No "Supabase is not configured" redirect on any auth page — 18692b9
 
 #### Manual
 
-- [x] 1.3 Home page loads; Topbar shows "Not signed in"
-- [x] 1.4 Visiting `/auth/signin` renders the form
+- [x] 1.3 Home page loads; Topbar shows "Not signed in" — 18692b9
+- [x] 1.4 Visiting `/auth/signin` renders the form — 18692b9
 
 ### Phase 2: Code Fixes
 
 #### Automated
 
-- [ ] 2.1 `npm run lint` passes with no errors on changed files
-- [ ] 2.2 `npm run build` completes without TypeScript errors
+- [x] 2.1 `npm run lint` passes with no errors on changed files
+- [x] 2.2 `npm run build` completes without TypeScript errors
 
 #### Manual
 
-- [ ] 2.3 Sign in with valid credentials → browser lands on `/dashboard`
-- [ ] 2.4 Visit `/auth/signin` while signed in → redirected to `/dashboard`
-- [ ] 2.5 Visit `/auth/signup` while signed in → redirected to `/dashboard`
-- [ ] 2.6 Sign up with new email → confirm-email shows "Registration successful" (local Supabase)
+- [x] 2.3 Sign in with valid credentials → browser lands on `/dashboard`
+- [x] 2.4 Visit `/auth/signin` while signed in → redirected to `/dashboard`
+- [x] 2.5 Visit `/auth/signup` while signed in → redirected to `/dashboard`
+- [x] 2.6 Sign up with new email → confirm-email shows "Registration successful" (local Supabase)
 
 ### Phase 3: End-to-End Verification
 
