@@ -467,11 +467,11 @@ Only additive: one new Storage migration. No changes to the `watches`/`wear_sess
 
 #### Automated
 
-- [x] 6.1 npm run build passes
-- [x] 6.2 npm run lint passes
+- [x] 6.1 npm run build passes — 83ed562
+- [x] 6.2 npm run lint passes — 83ed562
 
 #### Manual
 
-- [x] 6.3 Card click navigates to correct detail page
-- [x] 6.4 Other user's/nonexistent watch id shows 404
-- [x] 6.5 Signed-out visit redirects to /auth/signin
+- [x] 6.3 Card click navigates to correct detail page — 83ed562
+- [x] 6.4 Other user's/nonexistent watch id shows 404 — 83ed562
+- [x] 6.5 Signed-out visit redirects to /auth/signin — 83ed562

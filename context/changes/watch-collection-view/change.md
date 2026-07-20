@@ -1,7 +1,7 @@
 ---
 change_id: watch-collection-view
 title: Watch collection view
-status: implementing
+status: implemented
 created: 2026-07-20
 updated: 2026-07-20
 archived_at: null
