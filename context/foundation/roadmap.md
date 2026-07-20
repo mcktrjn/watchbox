@@ -29,7 +29,7 @@ Kolekcjoner zegarków poza domem chce mieć dostęp do całej swojej kolekcji w 
 
 | ID   | Change ID                 | Outcome (użytkownik może …)                                                           | Prerequisites          | PRD refs                               | Status   |
 | ---- | ------------------------- | ------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- | -------- |
-| F-01 | `database-schema`         | (foundation) tabele `watches` i `wear_sessions` z RLS i migracją wdrożone             | —                      | FR-004, FR-008, FR-009, FR-010, FR-011 | ready    |
+| F-01 | `database-schema`         | (foundation) tabele `watches` i `wear_sessions` z RLS i migracją wdrożone             | —                      | FR-004, FR-008, FR-009, FR-010, FR-011 | done     |
 | S-01 | `auth-flow`               | zarejestrować konto, zalogować się i wylogować; niezalogowany jest przekierowany      | —                      | FR-001, FR-002, FR-003, US-01          | done     |
 | S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | proposed |
 | S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | proposed |
@@ -61,7 +61,7 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Blockers:** —
 - **Unknowns:** OQ-1 (kaskada vs archiwizacja vs blokada przy usunięciu zegarka — prowizoryczna decyzja: CASCADE; finalna decyzja wymagana przed `/10x-plan wear-statistics`) — Owner: użytkownik. Block: no.
 - **Risk:** prowizoryczna kaskada CASCADE upraszcza schemat MVP; zmiana modelu po wdrożeniu S-04 byłaby kosztowna — OQ-1 powinno być rozstrzygnięte przed otwarciem S-05
-- **Status:** ready
+- **Status:** done
 
 ## Slices
 
@@ -156,4 +156,5 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 
 ## Done
 
+- **F-01: (foundation) tabele `watches` i `wear_sessions` z RLS i migracją wdrożone** — Archived 2026-07-08 → `context/archive/2026-06-30-database-schema/`. Lesson: —.
 - **S-01: użytkownik może założyć konto e-mail+hasło, zalogować się i wylogować; niezalogowany użytkownik jest automatycznie przekierowany na stronę logowania** — Archived 2026-07-08 → `context/archive/2026-07-08-auth-flow/`. Lesson: —.
