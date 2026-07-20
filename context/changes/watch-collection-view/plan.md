@@ -452,26 +452,26 @@ Only additive: one new Storage migration. No changes to the `watches`/`wear_sess
 
 #### Automated
 
-- [x] 5.1 npm run build passes
-- [x] 5.2 npm run lint passes
+- [x] 5.1 npm run build passes — 86fdb86
+- [x] 5.2 npm run lint passes — 86fdb86
 
 #### Manual
 
-- [x] 5.3 Add watch with name only succeeds and appears immediately
-- [x] 5.4 Add watch with photo succeeds and image renders
-- [x] 5.5 Empty name shows client-side validation error
-- [x] 5.6 Oversized/wrong-type file shows client-side error, no upload attempted
-- [x] 5.7 Second test account cannot see first account's new watch
+- [x] 5.3 Add watch with name only succeeds and appears immediately — 86fdb86
+- [x] 5.4 Add watch with photo succeeds and image renders — 86fdb86
+- [x] 5.5 Empty name shows client-side validation error — 86fdb86
+- [x] 5.6 Oversized/wrong-type file shows client-side error, no upload attempted — 86fdb86
+- [x] 5.7 Second test account cannot see first account's new watch — 86fdb86
 
 ### Phase 6: Watch Detail Page
 
 #### Automated
 
-- [ ] 6.1 npm run build passes
-- [ ] 6.2 npm run lint passes
+- [x] 6.1 npm run build passes
+- [x] 6.2 npm run lint passes
 
 #### Manual
 
-- [ ] 6.3 Card click navigates to correct detail page
-- [ ] 6.4 Other user's/nonexistent watch id shows 404
-- [ ] 6.5 Signed-out visit redirects to /auth/signin
+- [x] 6.3 Card click navigates to correct detail page
+- [x] 6.4 Other user's/nonexistent watch id shows 404
+- [x] 6.5 Signed-out visit redirects to /auth/signin
