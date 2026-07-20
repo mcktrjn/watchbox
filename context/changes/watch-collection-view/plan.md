@@ -426,27 +426,27 @@ Only additive: one new Storage migration. No changes to the `watches`/`wear_sess
 
 #### Automated
 
-- [x] 3.1 npm run build passes
-- [x] 3.2 npm run lint passes
+- [x] 3.1 npm run build passes — 0b224fc
+- [x] 3.2 npm run lint passes — 0b224fc
 
 #### Manual
 
-- [x] 3.3 GET/POST /api/watches and GET /api/watches/{id} return expected shapes/status codes
-- [x] 3.4 Signed-out requests return 401 JSON
-- [x] 3.5 Requesting another user's watch id returns 404
+- [x] 3.3 GET/POST /api/watches and GET /api/watches/{id} return expected shapes/status codes — 0b224fc
+- [x] 3.4 Signed-out requests return 401 JSON — 0b224fc
+- [x] 3.5 Requesting another user's watch id returns 404 — 0b224fc
 
 ### Phase 4: Collection List Page
 
 #### Automated
 
-- [ ] 4.1 npm run build passes
-- [ ] 4.2 npm run lint passes
+- [x] 4.1 npm run build passes
+- [x] 4.2 npm run lint passes
 
 #### Manual
 
-- [ ] 4.3 Signed-out visit to /collection redirects to /auth/signin
-- [ ] 4.4 Signed-in empty collection shows empty state
-- [ ] 4.5 Signed-in non-empty collection shows cards newest-first
+- [x] 4.3 Signed-out visit to /collection redirects to /auth/signin
+- [x] 4.4 Signed-in empty collection shows empty state
+- [x] 4.5 Signed-in non-empty collection shows cards newest-first
 
 ### Phase 5: Add-Watch Dialog
 

@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Topbar from "@/components/Topbar.astro";
+import { createClient } from "@/lib/supabase";
+import { listWatches } from "@/lib/watches";
+import { CollectionView } from "@/components/collection/CollectionView";
+
+const { user } = Astro.locals;
+
+const supabase = createClient(Astro.request.headers, Astro.cookies);
+const watches = supabase && user ? await listWatches(supabase, user.id) : [];
+---
+
+<Layout title="Collection">
+  <div class="bg-cosmic min-h-screen p-4 sm:p-8">
+    <Topbar />
+    <div class="mx-auto max-w-5xl">
+      <h1 class="mb-6 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-3xl font-bold text-transparent">
+        Your collection
+      </h1>
+      <CollectionView client:load initialWatches={watches} />
+    </div>
+  </div>
+</Layout>
