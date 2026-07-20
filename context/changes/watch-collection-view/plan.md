@@ -414,26 +414,26 @@ Only additive: one new Storage migration. No changes to the `watches`/`wear_sess
 
 #### Automated
 
-- [x] 2.1 npm run build passes
-- [x] 2.2 npm run lint passes
+- [x] 2.1 npm run build passes — d5cc7f9
+- [x] 2.2 npm run lint passes — d5cc7f9
 
 #### Manual
 
-- [x] 2.3 WatchCard renders correctly with and without photo
-- [x] 2.4 EmptyCollectionState matches app visual style
+- [x] 2.3 WatchCard renders correctly with and without photo — d5cc7f9
+- [x] 2.4 EmptyCollectionState matches app visual style — d5cc7f9
 
 ### Phase 3: Watches Data Access & API Routes
 
 #### Automated
 
-- [ ] 3.1 npm run build passes
-- [ ] 3.2 npm run lint passes
+- [x] 3.1 npm run build passes
+- [x] 3.2 npm run lint passes
 
 #### Manual
 
-- [ ] 3.3 GET/POST /api/watches and GET /api/watches/{id} return expected shapes/status codes
-- [ ] 3.4 Signed-out requests return 401 JSON
-- [ ] 3.5 Requesting another user's watch id returns 404
+- [x] 3.3 GET/POST /api/watches and GET /api/watches/{id} return expected shapes/status codes
+- [x] 3.4 Signed-out requests return 401 JSON
+- [x] 3.5 Requesting another user's watch id returns 404
 
 ### Phase 4: Collection List Page
 
