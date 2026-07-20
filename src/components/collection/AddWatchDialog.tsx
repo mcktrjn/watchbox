@@ -18,6 +18,11 @@ import type { Watch } from "@/lib/watches";
 const MAX_NAME_LENGTH = 100;
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const ALLOWED_MIME_TYPES = ["image/jpeg", "image/png", "image/webp"];
+const MIME_TO_EXT: Record<string, string> = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+};
 const WATCH_PHOTOS_BUCKET = "watch-photos";
 
 interface AddWatchDialogProps {
@@ -103,6 +108,7 @@ export function AddWatchDialog({ open, onOpenChange, onCreated }: AddWatchDialog
     setSubmitting(true);
     try {
       let photoUrl: string | undefined;
+      let uploadedPath: string | undefined;
 
       if (file) {
         const supabase = createBrowserSupabaseClient();
@@ -119,10 +125,10 @@ export function AddWatchDialog({ open, onOpenChange, onCreated }: AddWatchDialog
           return;
         }
 
-        const ext = file.name.includes(".") ? file.name.split(".").pop() : file.type.split("/")[1];
-        const path = `${user.id}/${crypto.randomUUID()}.${ext}`;
+        const ext = MIME_TO_EXT[file.type] ?? "jpg";
+        uploadedPath = `${user.id}/${crypto.randomUUID()}.${ext}`;
 
-        const { error: uploadError } = await supabase.storage.from(WATCH_PHOTOS_BUCKET).upload(path, file, {
+        const { error: uploadError } = await supabase.storage.from(WATCH_PHOTOS_BUCKET).upload(uploadedPath, file, {
           contentType: file.type,
         });
         if (uploadError) {
@@ -132,7 +138,7 @@ export function AddWatchDialog({ open, onOpenChange, onCreated }: AddWatchDialog
 
         const {
           data: { publicUrl },
-        } = supabase.storage.from(WATCH_PHOTOS_BUCKET).getPublicUrl(path);
+        } = supabase.storage.from(WATCH_PHOTOS_BUCKET).getPublicUrl(uploadedPath);
         photoUrl = publicUrl;
       }
 
@@ -144,6 +150,13 @@ export function AddWatchDialog({ open, onOpenChange, onCreated }: AddWatchDialog
 
       const body: unknown = await response.json();
       if (!response.ok) {
+        // Best-effort cleanup: remove the uploaded photo if watch creation failed
+        if (uploadedPath) {
+          const supabase = createBrowserSupabaseClient();
+          if (supabase) {
+            await supabase.storage.from(WATCH_PHOTOS_BUCKET).remove([uploadedPath]);
+          }
+        }
         setServerError(isErrorBody(body) ? body.error : "Failed to add watch");
         return;
       }
