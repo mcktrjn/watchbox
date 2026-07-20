@@ -127,6 +127,8 @@ SUPABASE_URL=https://<project-ref>.supabase.co
 SUPABASE_KEY=<anon-key>
 ```
 
+`PUBLIC_SUPABASE_URL` and `PUBLIC_SUPABASE_ANON_KEY` re-declare the same URL/anon-key values above for client-side use (e.g. direct-to-storage photo uploads). They must live in `.env` (not `.dev.vars`) since Astro inlines `astro:env/client` values at build time, not request time.
+
 ### Email confirmation in local development
 
 By default Supabase requires email confirmation before a user can sign in. To skip this during local development:
