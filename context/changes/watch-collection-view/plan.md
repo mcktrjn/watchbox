@@ -399,28 +399,28 @@ Only additive: one new Storage migration. No changes to the `watches`/`wear_sess
 
 #### Automated
 
-- [x] 1.1 Migration applies cleanly (db push/reset)
-- [x] 1.2 watch-photos bucket row exists with public = true
-- [x] 1.3 3 storage RLS policies exist for watch-photos
-- [x] 1.4 npm run build passes
-- [x] 1.5 npm run lint passes
+- [x] 1.1 Migration applies cleanly (db push/reset) — d2e3ef6
+- [x] 1.2 watch-photos bucket row exists with public = true — d2e3ef6
+- [x] 1.3 3 storage RLS policies exist for watch-photos — d2e3ef6
+- [x] 1.4 npm run build passes — d2e3ef6
+- [x] 1.5 npm run lint passes — d2e3ef6
 
 #### Manual
 
-- [x] 1.6 Bucket visible and public in Studio
-- [x] 1.7 3 policies visible in Studio
+- [x] 1.6 Bucket visible and public in Studio — d2e3ef6
+- [x] 1.7 3 policies visible in Studio — d2e3ef6
 
 ### Phase 2: Shared UI Primitives
 
 #### Automated
 
-- [ ] 2.1 npm run build passes
-- [ ] 2.2 npm run lint passes
+- [x] 2.1 npm run build passes
+- [x] 2.2 npm run lint passes
 
 #### Manual
 
-- [ ] 2.3 WatchCard renders correctly with and without photo
-- [ ] 2.4 EmptyCollectionState matches app visual style
+- [x] 2.3 WatchCard renders correctly with and without photo
+- [x] 2.4 EmptyCollectionState matches app visual style
 
 ### Phase 3: Watches Data Access & API Routes
 
