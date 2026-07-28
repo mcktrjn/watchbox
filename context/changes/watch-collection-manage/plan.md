@@ -258,25 +258,25 @@ No test framework is configured project-wide (per `AGENTS.md`). Verification rel
 
 #### Automated
 
-- [x] 2.1 `npm run build` completes without type errors
-- [x] 2.2 `npm run lint` passes
+- [x] 2.1 `npm run build` completes without type errors — e2c5e26
+- [x] 2.2 `npm run lint` passes — e2c5e26
 
 #### Manual
 
-- [x] 2.3 GET /api/watches excludes soft-deleted watches
-- [x] 2.4 GET /api/watches/[id] returns 404 for soft-deleted watch
-- [x] 2.5 PUT /api/watches/[id] updates name and/or photo correctly
-- [x] 2.6 PUT /api/watches/[id] returns 400 for empty name
-- [x] 2.7 DELETE /api/watches/[id] soft-deletes and returns success
-- [x] 2.8 DELETE /api/watches/[id] returns 404 on second call
-- [x] 2.9 All endpoints return 401 when unauthenticated
+- [x] 2.3 GET /api/watches excludes soft-deleted watches — e2c5e26
+- [x] 2.4 GET /api/watches/[id] returns 404 for soft-deleted watch — e2c5e26
+- [x] 2.5 PUT /api/watches/[id] updates name and/or photo correctly — e2c5e26
+- [x] 2.6 PUT /api/watches/[id] returns 400 for empty name — e2c5e26
+- [x] 2.7 DELETE /api/watches/[id] soft-deletes and returns success — e2c5e26
+- [x] 2.8 DELETE /api/watches/[id] returns 404 on second call — e2c5e26
+- [x] 2.9 All endpoints return 401 when unauthenticated — e2c5e26
 
 ### Phase 3: Edit Dialog, Delete Confirmation & Detail Page Actions
 
 #### Automated
 
-- [ ] 3.1 `npm run build` completes without type errors
-- [ ] 3.2 `npm run lint` passes
+- [x] 3.1 `npm run build` completes without type errors
+- [x] 3.2 `npm run lint` passes
 
 #### Manual
 

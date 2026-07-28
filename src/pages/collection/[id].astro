@@ -1,9 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Topbar from "@/components/Topbar.astro";
-import { Watch } from "lucide-react";
 import { createClient } from "@/lib/supabase";
 import { getWatchById } from "@/lib/watches";
+import { WatchDetailClient } from "@/components/collection/WatchDetailClient";
 
 const { user } = Astro.locals;
 const { id } = Astro.params;
@@ -29,19 +29,11 @@ const formattedDate = watchItem
       </a>
       {
         watchItem ? (
-          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-            <div class="flex aspect-square items-center justify-center bg-white/5">
-              {watchItem.photo_url ? (
-                <img src={watchItem.photo_url} alt={watchItem.name} class="h-full w-full object-cover" />
-              ) : (
-                <Watch className="size-16 text-blue-100/40" />
-              )}
-            </div>
-            <div class="p-6">
-              <h1 class="text-2xl font-bold text-white">{watchItem.name}</h1>
-              <p class="mt-1 text-sm text-blue-100/60">Added on {formattedDate}</p>
-            </div>
-          </div>
+          <WatchDetailClient
+            client:load
+            watch={{ id: watchItem.id, name: watchItem.name, photoUrl: watchItem.photo_url }}
+            formattedDate={formattedDate ?? ""}
+          />
         ) : (
           <div class="rounded-2xl border border-white/10 bg-white/5 px-6 py-16 text-center">
             <h1 class="text-lg font-semibold text-white">Watch not found</h1>
