@@ -1,10 +1,10 @@
 ---
 change_id: watch-collection-view
 title: Watch collection view
-status: impl_reviewed
+status: archived
 created: 2026-07-20
-updated: 2026-07-20
-archived_at: null
+updated: 2026-07-28
+archived_at: 2026-07-28T10:51:39Z
 ---
 
 ## Notes
