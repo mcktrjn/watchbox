@@ -275,14 +275,14 @@ No test framework is configured project-wide (per `AGENTS.md`). Verification rel
 
 #### Automated
 
-- [x] 3.1 `npm run build` completes without type errors
-- [x] 3.2 `npm run lint` passes
+- [x] 3.1 `npm run build` completes without type errors — 78e2378
+- [x] 3.2 `npm run lint` passes — 78e2378
 
 #### Manual
 
-- [ ] 3.3 Edit dialog pre-fills with current name; submit updates detail page
-- [ ] 3.4 Edit dialog: new photo replaces old; old file removed from Storage
-- [ ] 3.5 Edit dialog: validation errors block submit
-- [ ] 3.6 Delete confirmation: Cancel closes, Delete soft-deletes and redirects
-- [ ] 3.7 Deleted watch no longer appears in collection grid
-- [ ] 3.8 RLS: another user cannot access or modify the watch
+- [x] 3.3 Edit dialog pre-fills with current name; submit updates detail page
+- [x] 3.4 Edit dialog: new photo replaces old; old file removed from Storage
+- [x] 3.5 Edit dialog: validation errors block submit
+- [x] 3.6 Delete confirmation: Cancel closes, Delete soft-deletes and redirects
+- [x] 3.7 Deleted watch no longer appears in collection grid
+- [x] 3.8 RLS: another user cannot access or modify the watch
