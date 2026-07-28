@@ -85,7 +85,10 @@ export const PUT: APIRoute = async (context) => {
 
   if (rawName !== undefined) {
     const name = typeof rawName === "string" ? rawName.trim() : "";
-    if (!name || name.length > MAX_NAME_LENGTH) {
+    if (!name) {
+      return Response.json({ error: "Name is required" }, { status: 400 });
+    }
+    if (name.length > MAX_NAME_LENGTH) {
       return Response.json({ error: `Name must be ${MAX_NAME_LENGTH} characters or fewer` }, { status: 400 });
     }
   }

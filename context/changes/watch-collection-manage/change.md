@@ -1,7 +1,7 @@
 ---
 change_id: watch-collection-manage
 title: Watch collection manage
-status: implemented
+status: impl_reviewed
 created: 2026-07-28
 updated: 2026-07-28
 archived_at: null
