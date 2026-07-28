@@ -34,7 +34,7 @@ Kolekcjoner zegarków poza domem chce mieć dostęp do całej swojej kolekcji w 
 | S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | done     |
 | S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | proposed |
 | S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | proposed |
-| S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | blocked  |
+| S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | proposed |
 
 ## Baseline
 
@@ -60,8 +60,8 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Parallel with:** S-01
 - **Blockers:** —
 - **Unknowns:** OQ-1 (kaskada vs archiwizacja vs blokada przy usunięciu zegarka — prowizoryczna decyzja: CASCADE; finalna decyzja wymagana przed `/10x-plan wear-statistics`) — Owner: użytkownik. Block: no.
-- **Risk:** prowizoryczna kaskada CASCADE upraszcza schemat MVP; zmiana modelu po wdrożeniu S-04 byłaby kosztowna — OQ-1 powinno być rozstrzygnięte przed otwarciem S-05
-- **Status:** done
+- **Risk:** — (rozwiązane: OQ-1 rozstrzygnięty na korzyść archiwizacji (opcja B) — migracja `watches` zostanie zaktualizowana w S-03, zastępując CASCADE kolumną `deleted_at`)
+- **Status:** done (wymaga aktualizacji migracji przed S-03)
 
 ## Slices
 
@@ -98,8 +98,8 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Parallel with:** S-04
 - **Blockers:** —
 - **Unknowns:**
-  - OQ-1 (co dzieje się z sesjami noszenia przy usunięciu zegarka — CASCADE / archiwizacja / blokada) — Owner: użytkownik. Block: no (prowizoryczna kaskada wystarczy do planowania S-03; finalna decyzja wymagana przed otwarciem S-05).
-- **Risk:** edycja jest must-have, bo usunięcie zegarka osierociłoby jego historię noszenia (motywacja z PRD dla FR-007); finalna decyzja OQ-1 powinna być zapisana jako explicit business rule przed wdrożeniem S-05
+  - OQ-1 — rozstrzygnięty 2026-07-28: opcja B (archiwizacja / soft delete). Zegarek dostaje kolumnę `deleted_at`, sesje noszenia pozostają nienaruszone. Statystyki S-05 pokazują tylko aktywne zegarki (`WHERE deleted_at IS NULL`).
+- **Risk:** S-03 musi uwzględnić aktualizację migracji F-01 (zastąpienie CASCADE przez `deleted_at`) i filtrowanie `deleted_at IS NULL` we wszystkich zapytaniach do `watches`. Wdrożenie `deleted_at` w S-03 jest warunkiem poprawności S-05.
 - **Status:** proposed
 
 ### S-04: Rejestracja sesji noszenia
@@ -123,24 +123,24 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Parallel with:** —
 - **Blockers:** —
 - **Unknowns:**
-  - OQ-1 (co dzieje się z sesjami noszenia przy usunięciu zegarka) — Owner: użytkownik. Block: yes (algorytm rankingu i zapytania statystyk muszą być spójne z finalną decyzją dotyczącą kaskady / archiwizacji; PRD §Open Questions stanowi: „do rozstrzygnięcia przed implementacją statystyk").
+  - OQ-1 — rozstrzygnięty 2026-07-28: opcja B (archiwizacja / soft delete). Algorytm rankingu i zapytania statystyk filtrują po `deleted_at IS NULL`.
 - **Risk:** pusty stan (brak zarejestrowanych sesji) musi być zaprojektowany świadomie — US-01 acceptance criteria wymagają stanu pustego z wyjaśnieniem, nie pustego wykresu; cel wydajności < 1s p95 dla przeliczenia statystyk dla typowej kolekcji
-- **Status:** blocked
+- **Status:** proposed
 
 ## Backlog Handoff
 
-| Roadmap ID | Change ID                 | Suggested issue title                                           | Ready for `/10x-plan` | Notes                                                                |
-| ---------- | ------------------------- | --------------------------------------------------------------- | --------------------- | -------------------------------------------------------------------- |
-| F-01       | `database-schema`         | Set up watches & wear_sessions schema with RLS                  | yes                   | Uruchom `/10x-plan database-schema`                                  |
-| S-01       | `auth-flow`               | Verify & complete email+password auth flow (Cloudflare Workers) | yes                   | Uruchom `/10x-plan auth-flow` (równolegle z F-01)                    |
-| S-02       | `watch-collection-view`   | Watch collection: add, list, view detail                        | no                    | Wymaga F-01 i S-01                                                   |
-| S-03       | `watch-collection-manage` | Watch collection: edit and delete                               | no                    | Wymaga S-02; rozstrzygnij OQ-1 przed wdrożeniem                      |
-| S-04       | `wear-session-tracking`   | Wear session: register, edit, delete                            | no                    | Wymaga F-01, S-01, S-02                                              |
-| S-05       | `wear-statistics`         | Wear statistics charts (week / month / year)                    | no                    | Zablokowany na OQ-1 — rozstrzygnij przed `/10x-plan wear-statistics` |
+| Roadmap ID | Change ID                 | Suggested issue title                                           | Ready for `/10x-plan` | Notes                                                                                           |
+| ---------- | ------------------------- | --------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------- |
+| F-01       | `database-schema`         | Set up watches & wear_sessions schema with RLS                  | yes                   | Uruchom `/10x-plan database-schema`                                                             |
+| S-01       | `auth-flow`               | Verify & complete email+password auth flow (Cloudflare Workers) | yes                   | Uruchom `/10x-plan auth-flow` (równolegle z F-01)                                               |
+| S-02       | `watch-collection-view`   | Watch collection: add, list, view detail                        | no                    | Wymaga F-01 i S-01                                                                              |
+| S-03       | `watch-collection-manage` | Watch collection: edit and delete                               | no                    | Wymaga S-02; OQ-1 rozstrzygnięty (opcja B — soft delete); pamiętaj o aktualizacji migracji F-01 |
+| S-04       | `wear-session-tracking`   | Wear session: register, edit, delete                            | no                    | Wymaga F-01, S-01, S-02                                                                         |
+| S-05       | `wear-statistics`         | Wear statistics charts (week / month / year)                    | no                    | Wymaga F-01 (zaktualizowanej w S-03), S-01, S-02, S-04                                          |
 
 ## Open Roadmap Questions
 
-1. **Co dzieje się z zarejestrowanymi sesjami noszenia przy usunięciu zegarka (OQ-1)?** — Owner: użytkownik. Block: S-05 (yes). Opcje: (a) kaskada — usuń sesje razem z zegarkiem (standard MVP, najprościej); (b) archiwizacja — zachowaj sesje, oznacz zegarek jako usunięty; (c) blokada — nie pozwól na usunięcie zegarka, który ma historię noszenia. Rozstrzygnięcie odblokuje S-05 i pozwoli zamknąć OQ-1 w S-03.
+1. ~~**Co dzieje się z zarejestrowanymi sesjami noszenia przy usunięciu zegarka (OQ-1)?** — Owner: użytkownik. Block: S-05 (yes). Opcje: (a) kaskada — usuń sesje razem z zegarkiem (standard MVP, najprościej); (b) archiwizacja — zachowaj sesje, oznacz zegarek jako usunięty; (c) blokada — nie pozwól na usunięcie zegarka, który ma historię noszenia. Rozstrzygnięcie odblokuje S-05 i pozwoli zamknąć OQ-1 w S-03.~~ **Rozstrzygnięte 2026-07-28: opcja B (archiwizacja / soft delete).** Zegarek otrzymuje kolumnę `deleted_at` — znika z widoków, dane pozostają w bazie. Sesje noszenia nigdy nie są usuwane kaskadowo. Statystyki S-05 pokazują tylko aktywne zegarki (`WHERE deleted_at IS NULL`). Implementacja `deleted_at` należy do S-03 (aktualizacja migracji F-01 + filtrowanie w zapytaniach).
 2. **Ryzyko dyscypliny logowania (OQ-2)** — cała wartość S-05 zależy od regularności ręcznego wpisywania sesji noszenia; brak wpisów = puste wykresy = brak sygnału. Owner: użytkownik. Block: none (ryzyko zaakceptowane świadomie; mitygacja docelowa to hardware-tracker poza zakresem MVP).
 
 ## Parked
