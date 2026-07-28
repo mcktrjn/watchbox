@@ -244,32 +244,32 @@ No test framework is configured project-wide (per `AGENTS.md`). Verification rel
 
 #### Automated
 
-- [x] 1.1 `npx supabase db reset` applies all migrations cleanly
-- [x] 1.2 `deleted_at` column exists on `watches` with type `TIMESTAMPTZ`
-- [x] 1.3 `wear_sessions_watch_id_fkey` has `ON DELETE NO ACTION`
-- [x] 1.4 `npm run build` completes without type errors
-- [x] 1.5 `npm run lint` passes
+- [x] 1.1 `npx supabase db reset` applies all migrations cleanly — 30b4265
+- [x] 1.2 `deleted_at` column exists on `watches` with type `TIMESTAMPTZ` — 30b4265
+- [x] 1.3 `wear_sessions_watch_id_fkey` has `ON DELETE NO ACTION` — 30b4265
+- [x] 1.4 `npm run build` completes without type errors — 30b4265
+- [x] 1.5 `npm run lint` passes — 30b4265
 
 #### Manual
 
-- [x] 1.6 Supabase Studio confirms `deleted_at` column and FK constraint
+- [x] 1.6 Supabase Studio confirms `deleted_at` column and FK constraint — 30b4265
 
 ### Phase 2: Data Layer & API Routes
 
 #### Automated
 
-- [ ] 2.1 `npm run build` completes without type errors
-- [ ] 2.2 `npm run lint` passes
+- [x] 2.1 `npm run build` completes without type errors
+- [x] 2.2 `npm run lint` passes
 
 #### Manual
 
-- [ ] 2.3 GET /api/watches excludes soft-deleted watches
-- [ ] 2.4 GET /api/watches/[id] returns 404 for soft-deleted watch
-- [ ] 2.5 PUT /api/watches/[id] updates name and/or photo correctly
-- [ ] 2.6 PUT /api/watches/[id] returns 400 for empty name
-- [ ] 2.7 DELETE /api/watches/[id] soft-deletes and returns success
-- [ ] 2.8 DELETE /api/watches/[id] returns 404 on second call
-- [ ] 2.9 All endpoints return 401 when unauthenticated
+- [x] 2.3 GET /api/watches excludes soft-deleted watches
+- [x] 2.4 GET /api/watches/[id] returns 404 for soft-deleted watch
+- [x] 2.5 PUT /api/watches/[id] updates name and/or photo correctly
+- [x] 2.6 PUT /api/watches/[id] returns 400 for empty name
+- [x] 2.7 DELETE /api/watches/[id] soft-deletes and returns success
+- [x] 2.8 DELETE /api/watches/[id] returns 404 on second call
+- [x] 2.9 All endpoints return 401 when unauthenticated
 
 ### Phase 3: Edit Dialog, Delete Confirmation & Detail Page Actions
 
