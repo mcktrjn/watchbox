@@ -306,14 +306,14 @@ Create the `/stats` Astro page, wire it into navigation, and add it to the prote
 
 #### Automated
 
-- [ ] 2.1 TypeScript compilation passes: `npx astro check`
-- [ ] 2.2 Linting passes: `npm run lint`
+- [x] 2.1 TypeScript compilation passes: `npx astro check` — 7c295ba
+- [x] 2.2 Linting passes: `npm run lint` — 7c295ba
 
 #### Manual
 
-- [ ] 2.3 Period toggle switches data, chart re-renders correctly
-- [ ] 2.4 Metric toggle switches between hours and sessions
-- [ ] 2.5 Empty state renders when user has watches but zero sessions
+- [x] 2.3 Period toggle switches data, chart re-renders correctly — 7c295ba
+- [x] 2.4 Metric toggle switches between hours and sessions — 7c295ba
+- [x] 2.5 Empty state renders when user has watches but zero sessions — 7c295ba
 
 ### Phase 3: Page & Navigation
 
