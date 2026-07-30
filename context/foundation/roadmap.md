@@ -3,7 +3,7 @@ project: "Watchbox"
 version: 1
 status: draft
 created: 2026-06-30
-updated: 2026-07-28
+updated: 2026-07-30
 prd_version: 1
 main_goal: speed
 top_blocker: decisions
@@ -33,7 +33,7 @@ Kolekcjoner zegarków poza domem chce mieć dostęp do całej swojej kolekcji w 
 | S-01 | `auth-flow`               | zarejestrować konto, zalogować się i wylogować; niezalogowany jest przekierowany      | —                      | FR-001, FR-002, FR-003, US-01          | done     |
 | S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | done     |
 | S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | done     |
-| S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | proposed |
+| S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | done     |
 | S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | proposed |
 
 ## Baseline
@@ -112,7 +112,7 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Blockers:** —
 - **Unknowns:** —
 - **Risk:** walidacja reguły biznesowej (godzina zdjęcia ≥ godzina założenia) musi być wyegzekwowana po stronie serwera, nie tylko po stronie klienta; cała wartość S-05 zależy od regularności ręcznego wpisywania sesji przez użytkownika (OQ-2)
-- **Status:** proposed
+- **Status:** done
 
 ### S-05: Statystyki noszenia
 
@@ -160,3 +160,4 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **S-01: użytkownik może założyć konto e-mail+hasło, zalogować się i wylogować; niezalogowany użytkownik jest automatycznie przekierowany na stronę logowania** — Archived 2026-07-08 → `context/archive/2026-07-08-auth-flow/`. Lesson: —.
 - **S-02: użytkownik może dodać zegarek do kolekcji (podając nazwę; zdjęcie opcjonalne), przeglądać listę wszystkich swoich zegarków i zobaczyć szczegóły pojedynczego zegarka** — Archived 2026-07-28 → `context/archive/2026-07-20-watch-collection-view/`. Lesson: —.
 - **S-03: użytkownik może edytować i usunąć zegarek z kolekcji (soft delete z zachowaniem wear history)** — Archived 2026-07-28 → `context/archive/2026-07-28-watch-collection-manage/`. Lesson: —.
+- **S-04: zarejestrować, edytować i usunąć sesję noszenia zegarka** — Archived 2026-07-30 → `context/archive/2026-07-28-wear-session-tracking/`. Lesson: —.
