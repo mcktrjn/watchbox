@@ -303,24 +303,24 @@ Wire the session components into `WatchDetailClient` and update `collection/[id]
 
 #### Automated
 
-- [x] 2.1 TypeScript compilation passes: `npx astro check`
-- [x] 2.2 Linting passes: `npm run lint`
+- [x] 2.1 TypeScript compilation passes: `npx astro check` — 413a8b2
+- [x] 2.2 Linting passes: `npm run lint` — 413a8b2
 
 #### Manual
 
-- [ ] 2.3 POST valid session → 201 + session JSON
-- [ ] 2.4 POST future date → 400 error
-- [ ] 2.5 POST endTime before startTime → 400 error
-- [ ] 2.6 GET sessions → 200 + array
-- [ ] 2.7 PUT session → 200 + updated session
-- [ ] 2.8 DELETE session → 200
+- [x] 2.3 POST valid session → 201 + session JSON — 413a8b2
+- [x] 2.4 POST future date → 400 error — 413a8b2
+- [x] 2.5 POST endTime before startTime → 400 error — 413a8b2
+- [x] 2.6 GET sessions → 200 + array — 413a8b2
+- [x] 2.7 PUT session → 200 + updated session — 413a8b2
+- [x] 2.8 DELETE session → 200 — 413a8b2
 
 ### Phase 3: UI Components
 
 #### Automated
 
-- [ ] 3.1 TypeScript compilation passes: `npx astro check`
-- [ ] 3.2 Linting passes: `npm run lint`
+- [x] 3.1 TypeScript compilation passes: `npx astro check`
+- [x] 3.2 Linting passes: `npm run lint`
 
 #### Manual
 
