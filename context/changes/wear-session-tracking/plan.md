@@ -292,19 +292,19 @@ Wire the session components into `WatchDetailClient` and update `collection/[id]
 
 #### Automated
 
-- [x] 1.1 TypeScript compilation passes: `npx astro check`
-- [x] 1.2 Linting passes: `npm run lint`
+- [x] 1.1 TypeScript compilation passes: `npx astro check` — b53c6ea
+- [x] 1.2 Linting passes: `npm run lint` — b53c6ea
 
 #### Manual
 
-- [ ] 1.3 Import `listSessions` and verify correct shape from live Supabase
+- [x] 1.3 Import `listSessions` and verify correct shape from live Supabase — b53c6ea
 
 ### Phase 2: API Routes
 
 #### Automated
 
-- [ ] 2.1 TypeScript compilation passes: `npx astro check`
-- [ ] 2.2 Linting passes: `npm run lint`
+- [x] 2.1 TypeScript compilation passes: `npx astro check`
+- [x] 2.2 Linting passes: `npm run lint`
 
 #### Manual
 
