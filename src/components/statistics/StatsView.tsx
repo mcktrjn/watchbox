@@ -29,8 +29,8 @@ function CustomTooltip({
   active,
   payload: payloadData,
 }: {
-  active: boolean;
-  payload: { payload: StatRow; name: string }[];
+  active?: boolean;
+  payload?: { payload: StatRow; name: string }[];
 }) {
   if (!active || payloadData.length === 0) return null;
   const row = payloadData[0].payload;
@@ -99,7 +99,6 @@ export function StatsView() {
   const sortedStats = metric === "hours" ? stats : [...stats].sort((a, b) => b.sessionCount - a.sessionCount);
 
   const totalHours = stats.reduce((sum, s) => sum + s.totalHours, 0);
-  const _totalSessions = stats.reduce((sum, s) => sum + s.sessionCount, 0);
   const mostWorn = stats.length > 0 ? stats[0] : null;
 
   if (loading) {
