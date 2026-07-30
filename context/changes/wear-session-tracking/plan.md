@@ -324,25 +324,25 @@ Wire the session components into `WatchDetailClient` and update `collection/[id]
 
 #### Manual
 
-- [ ] 3.3 Empty state renders with CTA
-- [ ] 3.4 Add dialog opens with date/time fields
-- [ ] 3.5 Valid submission → session appears in list
-- [ ] 3.6 Inline edit → row transforms, save updates row
-- [ ] 3.7 Delete → confirmation → session removed
-- [ ] 3.8 Overlap warning appears but submission succeeds
-- [ ] 3.9 Future date blocked client-side
+- [x] 3.3 Empty state renders with CTA — 4831eb7
+- [x] 3.4 Add dialog opens with date/time fields — 4831eb7
+- [x] 3.5 Valid submission → session appears in list — 4831eb7
+- [x] 3.6 Inline edit → row transforms, save updates row — 4831eb7
+- [x] 3.7 Delete → confirmation → session removed — 4831eb7
+- [x] 3.8 Overlap warning appears but submission succeeds — 4831eb7
+- [x] 3.9 Future date blocked client-side — 4831eb7
 
 ### Phase 4: Integration
 
 #### Automated
 
-- [x] 4.1 TypeScript compilation passes: `npx astro check`
-- [x] 4.2 Linting passes: `npm run lint`
-- [x] 4.3 Build succeeds: `npm run build`
+- [x] 4.1 TypeScript compilation passes: `npx astro check` — 4831eb7
+- [x] 4.2 Linting passes: `npm run lint` — 4831eb7
+- [x] 4.3 Build succeeds: `npm run build` — 4831eb7
 
 #### Manual
 
-- [ ] 4.4 Full flow: empty → add → edit → delete on watch detail page
-- [ ] 4.5 Sessions persist across page refresh
-- [ ] 4.6 Sessions are scoped to the correct watch
-- [ ] 4.7 RLS: sessions isolated per user
+- [x] 4.4 Full flow: empty → add → edit → delete on watch detail page — 4831eb7
+- [x] 4.5 Sessions persist across page refresh — 4831eb7
+- [x] 4.6 Sessions are scoped to the correct watch — 4831eb7
+- [x] 4.7 RLS: sessions isolated per user — 4831eb7
