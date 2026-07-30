@@ -295,12 +295,12 @@ Create the `/stats` Astro page, wire it into navigation, and add it to the prote
 
 #### Automated
 
-- [x] 1.1 TypeScript compilation passes: `npx astro check`
-- [x] 1.2 Linting passes: `npm run lint`
+- [x] 1.1 TypeScript compilation passes: `npx astro check` — 4e77f32
+- [x] 1.2 Linting passes: `npm run lint` — 4e77f32
 
 #### Manual
 
-- [ ] 1.3 `curl GET /api/stats?period=week` returns correct aggregated data
+- [x] 1.3 `curl GET /api/stats?period=week` returns correct aggregated data — 4e77f32
 
 ### Phase 2: Chart Components
 
