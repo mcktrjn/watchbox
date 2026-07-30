@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Watch, Pencil, Trash2, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Watch, Pencil, Trash2, Loader2, Clock, Plus } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +10,11 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { EditWatchDialog } from "@/components/collection/EditWatchDialog";
+import { AddSessionDialog } from "@/components/collection/AddSessionDialog";
+import { WearSessionList } from "@/components/collection/WearSessionList";
+import { EmptySessionState } from "@/components/collection/EmptySessionState";
 import { ServerError } from "@/components/auth/ServerError";
+import type { WearSession } from "@/lib/wear-sessions";
 
 interface WatchData {
   id: string;
@@ -29,6 +33,48 @@ export function WatchDetailClient({ watch: initialWatch, formattedDate }: WatchD
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [sessions, setSessions] = useState<WearSession[]>([]);
+  const [sessionsLoading, setSessionsLoading] = useState(true);
+  const [sessionsError, setSessionsError] = useState<string | null>(null);
+  const [addSessionOpen, setAddSessionOpen] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchSessions() {
+      try {
+        const response = await fetch(`/api/watches/${watch.id}/sessions`);
+        if (!response.ok) {
+          throw new Error("Failed to load sessions");
+        }
+        const data = (await response.json()) as WearSession[];
+        if (!cancelled) {
+          setSessions(data);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setSessionsError(err instanceof Error ? err.message : "Failed to load sessions");
+        }
+      } finally {
+        if (!cancelled) {
+          setSessionsLoading(false);
+        }
+      }
+    }
+
+    void fetchSessions();
+    return () => {
+      cancelled = true;
+    };
+  }, [watch.id]);
+
+  const handleSessionCreated = (session: WearSession) => {
+    setSessions((prev) => [session, ...prev]);
+  };
+
+  const handleSessionsChange = (updated: WearSession[]) => {
+    setSessions(updated);
+  };
 
   const handleUpdated = (updated: WatchData) => {
     setWatch({
@@ -98,6 +144,51 @@ export function WatchDetailClient({ watch: initialWatch, formattedDate }: WatchD
           </div>
         </div>
       </div>
+
+      {/* Wear History Section */}
+      <div className="mt-8">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-white">
+            <Clock className="size-5" />
+            Wear History
+          </h2>
+          {sessions.length > 0 && (
+            <Button
+              size="sm"
+              onClick={() => {
+                setAddSessionOpen(true);
+              }}
+            >
+              <Plus className="size-4" />
+              Log Session
+            </Button>
+          )}
+        </div>
+
+        {sessionsLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="size-6 animate-spin text-blue-100/40" />
+          </div>
+        ) : sessionsError ? (
+          <p className="text-sm text-red-300">{sessionsError}</p>
+        ) : sessions.length === 0 ? (
+          <EmptySessionState
+            onAddClick={() => {
+              setAddSessionOpen(true);
+            }}
+          />
+        ) : (
+          <WearSessionList watchId={watch.id} sessions={sessions} onSessionsChange={handleSessionsChange} />
+        )}
+      </div>
+
+      <AddSessionDialog
+        watchId={watch.id}
+        open={addSessionOpen}
+        onOpenChange={setAddSessionOpen}
+        onCreated={handleSessionCreated}
+        existingSessions={sessions}
+      />
 
       <EditWatchDialog
         watch={{ id: watch.id, name: watch.name, photoUrl: watch.photoUrl }}

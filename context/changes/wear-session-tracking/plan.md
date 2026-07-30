@@ -319,8 +319,8 @@ Wire the session components into `WatchDetailClient` and update `collection/[id]
 
 #### Automated
 
-- [x] 3.1 TypeScript compilation passes: `npx astro check`
-- [x] 3.2 Linting passes: `npm run lint`
+- [x] 3.1 TypeScript compilation passes: `npx astro check` — a2e65fd
+- [x] 3.2 Linting passes: `npm run lint` — a2e65fd
 
 #### Manual
 
@@ -336,9 +336,9 @@ Wire the session components into `WatchDetailClient` and update `collection/[id]
 
 #### Automated
 
-- [ ] 4.1 TypeScript compilation passes: `npx astro check`
-- [ ] 4.2 Linting passes: `npm run lint`
-- [ ] 4.3 Build succeeds: `npm run build`
+- [x] 4.1 TypeScript compilation passes: `npx astro check`
+- [x] 4.2 Linting passes: `npm run lint`
+- [x] 4.3 Build succeeds: `npm run build`
 
 #### Manual
 
