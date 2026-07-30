@@ -319,12 +319,12 @@ Create the `/stats` Astro page, wire it into navigation, and add it to the prote
 
 #### Automated
 
-- [ ] 3.1 TypeScript compilation passes: `npx astro check`
-- [ ] 3.2 Linting passes: `npm run lint`
-- [ ] 3.3 Build succeeds: `npm run build`
+- [x] 3.1 TypeScript compilation passes: `npx astro check` — daeb742
+- [x] 3.2 Linting passes: `npm run lint` — daeb742
+- [x] 3.3 Build succeeds: `npm run build` — daeb742
 
 #### Manual
 
-- [ ] 3.4 `/stats` renders correctly when logged in
-- [ ] 3.5 `/stats` redirects to sign-in when logged out
-- [ ] 3.6 Navigation links work between all pages
+- [x] 3.4 `/stats` renders correctly when logged in — daeb742
+- [x] 3.5 `/stats` redirects to sign-in when logged out — daeb742
+- [x] 3.6 Navigation links work between all pages — daeb742
