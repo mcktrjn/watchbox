@@ -137,6 +137,13 @@ export function WearSessionList({ watchId, sessions, onSessionsChange }: WearSes
         method: "DELETE",
       });
 
+      // 404 means session is already gone — treat as success
+      if (response.status === 404) {
+        onSessionsChange(sessions.filter((s) => s.id !== sessionId));
+        setConfirmDeleteId(null);
+        return;
+      }
+
       if (!response.ok) {
         const body: unknown = await response.json().catch(() => ({}));
         const msg = isErrorBody(body) ? body.error : "Failed to delete session";

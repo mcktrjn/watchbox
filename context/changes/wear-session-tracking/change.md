@@ -1,7 +1,7 @@
 ---
 change_id: wear-session-tracking
 title: Wear session tracking — register, edit, and delete wearing sessions
-status: implemented
+status: impl_reviewed
 created: 2026-07-28
 updated: 2026-07-30
 archived_at: null

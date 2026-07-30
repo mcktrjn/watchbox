@@ -160,7 +160,7 @@ export function AddSessionDialog({ watchId, open, onOpenChange, onCreated, exist
           <DialogDescription className="text-blue-100/60">Record when you wore this watch.</DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="session-date">Date</Label>
             <Input
