@@ -34,7 +34,7 @@ Kolekcjoner zegarków poza domem chce mieć dostęp do całej swojej kolekcji w 
 | S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | done     |
 | S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | done     |
 | S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | done     |
-| S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | proposed |
+| S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | done     |
 
 ## Baseline
 
@@ -125,9 +125,7 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **Unknowns:**
   - OQ-1 — rozstrzygnięty 2026-07-28: opcja B (archiwizacja / soft delete). Algorytm rankingu i zapytania statystyk filtrują po `deleted_at IS NULL`.
 - **Risk:** pusty stan (brak zarejestrowanych sesji) musi być zaprojektowany świadomie — US-01 acceptance criteria wymagają stanu pustego z wyjaśnieniem, nie pustego wykresu; cel wydajności < 1s p95 dla przeliczenia statystyk dla typowej kolekcji
-- **Status:** proposed
-
-## Backlog Handoff
+- **Status:** done
 
 | Roadmap ID | Change ID                 | Suggested issue title                                           | Ready for `/10x-plan` | Notes                                                                                           |
 | ---------- | ------------------------- | --------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------- |
@@ -161,3 +159,4 @@ Foundations poniżej zakładają obecność tych warstw i NIE tworzą ich od now
 - **S-02: użytkownik może dodać zegarek do kolekcji (podając nazwę; zdjęcie opcjonalne), przeglądać listę wszystkich swoich zegarków i zobaczyć szczegóły pojedynczego zegarka** — Archived 2026-07-28 → `context/archive/2026-07-20-watch-collection-view/`. Lesson: —.
 - **S-03: użytkownik może edytować i usunąć zegarek z kolekcji (soft delete z zachowaniem wear history)** — Archived 2026-07-28 → `context/archive/2026-07-28-watch-collection-manage/`. Lesson: —.
 - **S-04: zarejestrować, edytować i usunąć sesję noszenia zegarka** — Archived 2026-07-30 → `context/archive/2026-07-28-wear-session-tracking/`. Lesson: —.
+- **S-05: zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)** — Archived 2026-07-30 → `context/archive/2026-07-30-wear-statistics/`. Lesson: —.
