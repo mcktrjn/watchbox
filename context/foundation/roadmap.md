@@ -27,14 +27,14 @@ Kolekcjoner zegarków poza domem chce mieć dostęp do całej swojej kolekcji w 
 
 ## At a glance
 
-| ID   | Change ID                 | Outcome (użytkownik może …)                                                           | Prerequisites          | PRD refs                               | Status   |
-| ---- | ------------------------- | ------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- | -------- |
-| F-01 | `database-schema`         | (foundation) tabele `watches` i `wear_sessions` z RLS i migracją wdrożone             | —                      | FR-004, FR-008, FR-009, FR-010, FR-011 | done     |
-| S-01 | `auth-flow`               | zarejestrować konto, zalogować się i wylogować; niezalogowany jest przekierowany      | —                      | FR-001, FR-002, FR-003, US-01          | done     |
-| S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | done     |
-| S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | done     |
-| S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | done     |
-| S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | done     |
+| ID   | Change ID                 | Outcome (użytkownik może …)                                                           | Prerequisites          | PRD refs                               | Status |
+| ---- | ------------------------- | ------------------------------------------------------------------------------------- | ---------------------- | -------------------------------------- | ------ |
+| F-01 | `database-schema`         | (foundation) tabele `watches` i `wear_sessions` z RLS i migracją wdrożone             | —                      | FR-004, FR-008, FR-009, FR-010, FR-011 | done   |
+| S-01 | `auth-flow`               | zarejestrować konto, zalogować się i wylogować; niezalogowany jest przekierowany      | —                      | FR-001, FR-002, FR-003, US-01          | done   |
+| S-02 | `watch-collection-view`   | dodać zegarek do kolekcji, przeglądać listę i zobaczyć szczegóły pojedynczego zegarka | F-01, S-01             | FR-004, FR-005, FR-006, US-01          | done   |
+| S-03 | `watch-collection-manage` | edytować i usunąć zegarek z kolekcji                                                  | S-02                   | FR-007, FR-008, US-01                  | done   |
+| S-04 | `wear-session-tracking`   | zarejestrować, edytować i usunąć sesję noszenia zegarka                               | F-01, S-01, S-02       | FR-009, FR-010, US-01                  | done   |
+| S-05 | `wear-statistics`         | zobaczyć wykresy statystyk noszenia w wybranym przedziale (tydzień / miesiąc / rok)   | F-01, S-01, S-02, S-04 | FR-011, US-01                          | done   |
 
 ## Baseline
 
